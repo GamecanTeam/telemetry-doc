@@ -89,8 +89,6 @@ Now you can use the visualization to get unique view of your data.
 ### Heatmap Tab
 Let's look at the Heatmap tab, here you can select a variety of options and combine to see data in to a 3D grid map.
 
-![alt text](image-6.png)
-
 - Mesh Type
     - Cube
     - Sphere
@@ -103,13 +101,18 @@ Let's look at the Heatmap tab, here you can select a variety of options and comb
 - 2D (2D Grid map)
 - Show Vector Field (Player Direction)
 - Heatmap Color (Color Range from Min to Max)
-- Filtes
-    - 
+- Filters
+    - Event Type
+    - Player
+    - Team
+    - Gameplay Tags
+    - Kills/deaths by weapon
+    - Custom event tag
 
-
-
-
+![alt text](image-6.png)
 
 ### Inspector Tab
+
+Inspect every single individual event by dropping an inspect actor to the scene and move it around to see the relevant information captured by the event. Change its radius to inspect nearby events.
 
 ![alt text](image-7.png)
