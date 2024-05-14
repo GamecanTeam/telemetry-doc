@@ -3,14 +3,15 @@
 A comprehensive tool for recording, analyzing, and visualizing gameplay events, catering to the needs of developers and analysts working with Unreal Engine projects.
 
 # Table of Contents
-  - [Features](#features)
-  - [Setup](#setup)
-  - [Initialize the Telemetry](#initialize-the-telemetry)
-  - [Recording Events ](#recording-events-)
-  - [Stop Recording](#stop-recording)
-  - [Visulization  ](#visulization--)
+- [Features](#features)
+- [Setup](#setup)
+- [Initialize the Telemetry](#initialize-the-telemetry)
+- [Recording Events ](#recording-events-)
+- [Stop Recording](#stop-recording)
+- [Visulization  ](#visulization--)
     - [Heatmap Tab](#heatmap-tab)
     - [Inspector Tab](#inspector-tab)
+- [Filtering](#filtering)
 
 ## Features
  - Record gameplay events in multiple coding languages (Blueprint and C++). 
@@ -37,6 +38,7 @@ Call the **Start Recording** function Inside the begin play of gamemode or game 
 - Match Id
 - Map Name
 - Game Mode
+- Clear Events (whether you want to clear previous recorded events; if false it will keep the events from previous session.)
 
 Example:
 
@@ -117,6 +119,7 @@ Let's look at the Heatmap tab, here you can select a variety of options and comb
     - Gameplay Tags
     - Kills/deaths by weapon
     - Custom event tag
+    - Gameplay Ability (Available in the Telemetry Addon Plugin)
 
 ![alt text](image-6.png)
 
@@ -125,3 +128,41 @@ Let's look at the Heatmap tab, here you can select a variety of options and comb
 Inspect every single individual event by dropping an inspect actor to the scene and move it around to see the relevant information captured by the event. Change its radius to inspect nearby events.
 
 ![alt text](image-7.png)
+
+### Filtering
+
+![Alt text](image-8.png)
+
+The image above represents all the events captured in a single session. Let's apply some filters in order to get some meaningful data out of it while exploring the common filtering options.
+
+Filter events by Gameplay Abilities (available in the Telemetry Addon Plugin):
+Filters events that were triggered by gameplay abilities. It has a gameplay tag attribute that allows us to leverage the gameplay tags system to increase the filtering options. 
+
+* *Abilities Tag*: Gameplay tag container that allows you look for a range type of abilities.
+
+* *Match Option*: Operation type to be performed on the *Abilities Tag* container attribute. Options are:
+    * "Has Tag": Determine if tag to check is present in this container, also checking against parent tags; Ex.: {"A.1"}.HasTag("A") will match while {"A"}.HasTag("A.1") won't;
+    * "Has Tag Exact": Determine if tag to check is explicitly present in this container, only allowing exact matches; Ex.: {"A.1"}.HasTagExact("A") won't match.
+
+* *Invert Condition*: This option will negate the condition applied for the filter; For instance, if you're filtering by "Has Tag Exact" and have this property checked, it will basically return all the events that doesn't have that exact gameplay tag.
+
+* *Filter Mode*: 
+    * Default: Uses the previous filter output as input;
+    * Aggregate: Allows you to combine results from the previous filter. Instead of using the previous filter as input, it will take into account the original set to perform the filtering and combine the results with the previous output;
+    * By Pass: The filter won't be applied (it has the same effect as removing the filter from the list).
+
+Having said that, let's filter every time a shot was fired:
+
+![Alt text](image-9.png)
+
+Now, let's filter it further by adding a *Player Filter* and check for a specific player, it's worth to mention a few things about the match option:
+
+* *PlayerId*: String with the player ID (in this case it's the player name).
+
+* *Match Option*: Operation to be perfomed on the PlayerId attribute.
+    * Equals: Lexicographically tests whether PlayerId is equivalent to the Other given string (Case sensitive. Upper/lower casing must match for strings to be considered equal)
+    * Contains: Whether PlayerId contains the specified substring (Ignore case. Upper/lower casing does not matter when making a comparison).
+
+![Alt text](image-10.png)
+
+Cool, we now know that this player was firing his weapon mostly from the ramp region of that map.
