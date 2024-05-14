@@ -2,8 +2,12 @@
 
 A comprehensive tool for recording, analyzing, and visualizing gameplay events, catering to the needs of developers and analysts working with Unreal Engine projects.
 
+# Table of Contents
+1. [Features](#features)
+2. [Setup](#setup)
+3. [Recording Events](#recording-events)
 
-## Features
+## Features <a name="features"/>
  - Record gameplay events in multiple coding languages (Blueprint and C++). 
  - Data storage options: JSON, Unreal Archive, compressed binary files. 
  - High-performance 3D grid-based visualization. 
@@ -12,7 +16,7 @@ A comprehensive tool for recording, analyzing, and visualizing gameplay events, 
  - Customizable heatmap color gradients and data range adjustments.
  - Future features include UI heatmaps and event timelines.
 
-## Setup
+## Setup <a name="setup"/>
 
  1. Download the plugin from the Unreal Marketplace,
  2. Enable the Telemetry Plugin
@@ -33,7 +37,7 @@ Example:
 
 ![alt text](image.png)
 
-## Recording Events
+## Recording Events <a name="recording-events"/>
 Now that the plugin has been initialized, you are free to add events. 
 
 Record the current player state in an interval, if you need more percise data it could be record in the Tick event, but it might increase the file size. providing these properties:
