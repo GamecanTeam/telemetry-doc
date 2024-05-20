@@ -2,6 +2,9 @@
 
 A comprehensive tool for recording, analyzing, and visualizing gameplay events, catering to the needs of developers and analysts working with Unreal Engine projects.
 
+# FAQ
+Read more [here](./FAQ.md)
+
 # Table of Contents
 - [Features](#features)
 - [Setup](#setup)
