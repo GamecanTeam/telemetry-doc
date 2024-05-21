@@ -106,6 +106,7 @@ Now you can use the visualization to get unique view of your data.
 
 ### Heatmap Tab
 Let's look at the Heatmap tab, here you can select a variety of options and combine to see data in to a 3D grid map.
+ou are able to load multiple files at a time by just selecting as many as you want when the open window pops up, but keep in mind that the system will not load files from different map names. 
 
 - Mesh Type
     - Cube
