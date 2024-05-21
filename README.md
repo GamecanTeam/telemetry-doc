@@ -5,6 +5,10 @@ A comprehensive tool for recording, analyzing, and visualizing gameplay events, 
 # FAQ
 Read more [here](./FAQ.md)
 
+## Example Project
+- [FPS Project](https://tinyurl.com/22ffteax)
+- [Lyra Project (requires Addon)](coming soon)
+
 # Table of Contents
 - [Features](#features)
 - [Setup](#setup)
